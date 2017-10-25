@@ -1,0 +1,47 @@
+-- Silence all
+hush
+
+d1 $ s "cp"
+
+-- Set tempo
+cps 4
+cps 5
+cps 6.9
+cps 7
+cps (200/60/4)
+cps 1.15
+
+-- Channel 1
+d1 $ s "tabla2*3"
+   # n "0 1 2 3"
+   # speed (slow 4 $ scale 0.6 18 sine)
+   # room "0.9"
+   # size "0.9"
+
+-- Channel 2
+d2 $ s "~ ~tabla2:4*4"
+   # n "0 1 2 3"
+   # speed (slow 2 $ scale 0.6 18 sine)
+   # room "0.8"
+   # size "0.5"
+
+-- Channel 3
+d3 $ s "tabla2:2"
+   # n "0 1 2 3"
+   # speed (slow 8 $ scale 0.6 18 sine)
+   # room "0.9"
+   # size "0.92"
+
+d4 $ s "808hc:4*6"
+
+d1 silence
+d2 silence
+d3 silence
+d4 silence
+
+-- d4 $ s "tabla2:6*4"
+--    # n "0 1 2 3"
+--    # speed (slow 8 $ scale 0.6 18 sine)
+--    # room "0.5"
+--    # size "0.3"
+--    # orbit "4"
