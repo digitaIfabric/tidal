@@ -1,0 +1,35 @@
+hush
+cps 1
+d1 $ s "tabla2 glitch house arp rave2 realclaps yeah"
+
+-- speed allows you to play with the pitch of the samples,
+d2 $ every 3 (# speed "1") $ s "glitch*4"
+         # n "0 2 3 5"
+         # speed "18"
+
+-- # vowel is a vowel formant filter, values include a, e, i, o, and u
+d3 $ every 3 (# vowel "o") $ s "glitch*4"
+         # n "0 2 3 5"
+         # vowel "a"
+
+d4 $ s "birds ~ birds:3 ~"
+d4 silence
+d5 $ s "birds3 ~ birds3:5 ~"
+d6 $ s "lorde:2"
+d6 $ s "cp"
+d6 silence
+
+d7 $ s "909*4"
+
+hush
+
+d1 $ slow 2 $ s "[tabla2 glitch] house"
+
+d2 $ s "seinfeld"
+
+-- d1 $ every 2 (ghost) $ s "tabla2(3,8)" 
+
+-- stut valors "Repetitions / gain / cycles"
+d1 $ stut 4 1 2 $ s "
+
+-- stack
