@@ -1,0 +1,23 @@
+d1 $ s "cp"
+d1 silence
+cps 0.55
+
+-- Initialize midi
+import Sound.Tidal.MIDI.Context
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+
+m1 <- midiStream devices "IAC Driver Tidal1" 1 synthController
+
+m2 <- midiStream devices "IAC Driver Tidal2" 1 synthController
+
+m3 <- midiStream devices "IAC Driver Tidal3" 1 synthController
+
+m1 $ n "a3(3,8)"
+m2 $ n "a3*4"
+
+m3 $ n "a3*4(3,8)"
+
+-- m2 $ n "e5(3,8)"
+
+-- m3 $ n "e7(3,8)"
