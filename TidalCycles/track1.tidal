@@ -1,0 +1,7 @@
+-- silence all
+hush
+
+-- set tempo
+cps 0.7
+
+d2 $ every 2 (ghost) $ s "tabla2(3,8)"
