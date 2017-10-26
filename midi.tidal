@@ -1,6 +1,6 @@
 d1 $ s "cp"
 d1 silence
-cps 0.55
+cps 1
 
 -- Initialize midi
 import Sound.Tidal.MIDI.Context
@@ -11,13 +11,18 @@ m1 <- midiStream devices "IAC Driver Tidal1" 1 synthController
 
 m2 <- midiStream devices "IAC Driver Tidal2" 1 synthController
 
-m3 <- midiStream devices "IAC Driver Tidal3" 1 synthController
+m3 <- midiStream devices "IAC Driver TidalClock" 1 synthController
 
 m1 $ n "a3(3,8)"
-m2 $ n "a3*4"
+m2 $ n "a3 ~ c#3 ~"
+m2 $ n "c3 ~ d3 ~"
 
-m3 $ n "a3*4(3,8)"
+m3 $ n "g3*2"
 
+d2 $ every 2 (ghost) $ s "tabla2(3,8)"
+d2 silence
+
+bps (200/100)
 -- m2 $ n "e5(3,8)"
 
 -- m3 $ n "e7(3,8)"
