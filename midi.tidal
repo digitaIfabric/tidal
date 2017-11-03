@@ -1,6 +1,13 @@
-d1 $ s "cp"
+hush
+d1 $ s "bd*cp"
+d2 $ every 2 (ghost) $ s "tabla2(3,8)"
+d3 $ s "lorde:3" # gain "1 0.8 0.5 0.7"
+d3 silence
+d3 $ s "lorde:2" # gain "0.3 0.4 0.5"
+
+d2 silence
 d1 silence
-cps 1
+cps 1.4
 
 -- Initialize midi
 import Sound.Tidal.MIDI.Context
@@ -13,11 +20,17 @@ m2 <- midiStream devices "IAC Driver Tidal2" 1 synthController
 
 m3 <- midiStream devices "IAC Driver TidalClock" 1 synthController
 
-m1 $ n "a3(3,8)"
-m2 $ n "a3 ~ c#3 ~"
-m2 $ n "c3 ~ d3 ~"
 
-m3 $ n "g3*2"
+m1 $ n "a3(5,8)"
+m1 $ n "a3(3,8)"
+m1 silence
+m2 $ note "-24 ~ -22 ~"
+m2 silence
+m2 $ n "c3 ~ d3 ~"
+m3 $ n "d1*4 d2*2 d3*2"
+m3 $ n "c1*2 d2*4 c3*2"
+m3 $ n "c3*6 c2*2"
+m3 silence
 
 d2 $ every 2 (ghost) $ s "tabla2(3,8)"
 d2 silence

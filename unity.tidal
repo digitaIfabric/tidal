@@ -1,0 +1,5 @@
+:load ~/UnityOsc
+
+v1 <- unityStream
+
+v1 $ thing "apple"

@@ -1,0 +1,30 @@
+import Sound.Tidal.MIDI.Context
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+
+m1 <- midiStream devices "IAC Driver Tidal1" 1 synthController
+m2 <- midiStream devices "IAC Driver Tidal2" 1 synthController
+m3 <- midiStream devices "IAC Driver TidalClock" 1 synthController
+
+m1 $ note "0"
+
+-- 0 is middle C
+m1 $ note "-20 -18 -16 -14 -12 -10" # velocity "0.5 0.75 1"
+
+-- midi notes from 0 to 127
+m2 $ note "-24 ~ -24 ~"
+m2 silence
+m3 $ note "-22 -21 -20 -19 -18 -17"
+
+-- duration
+m1 $ note "0 2" # dur "0.05 0.2"
+
+-- velocity
+m1 $ note "0 2 4 5 7 9 11 12" # velocity "0.5 0.75 1"
+
+-- modwheel
+m1 $ note "0 2 4 5 7 9 11 12" # modwheel "0.1 0.4 0.9"
+
+cps 1
+
+-- agar.io
