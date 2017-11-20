@@ -1,0 +1,8 @@
+-- Initialize midi
+import Sound.Tidal.MIDI.Context
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+
+m1 <- midiStream devices "IAC Driver Tidal1" 1 synthController
+m2 <- midiStream devices "IAC Driver Tidal2" 1 synthController
+m3 <- midiStream devices "IAC Driver TidalClock" 1 synthController

@@ -2,6 +2,10 @@ import Sound.Tidal.MIDI.Context
 displayOutputDevices >>= putStrLn
 devices <- midiDevices
 
+-- Faker::Music.key #=> "C"
+-- Faker::Music.chord #=> "Amaj7"
+-- Faker::Music.instrument #=> "Ukelele"
+
 m1 <- midiStream devices "IAC Driver Tidal1" 1 synthController
 m2 <- midiStream devices "IAC Driver Tidal2" 1 synthController
 m3 <- midiStream devices "IAC Driver TidalClock" 1 synthController
@@ -14,7 +18,7 @@ m1 $ note "-20 -18 -16 -14 -12 -10" # velocity "0.5 0.75 1"
 -- midi notes from 0 to 127
 m2 $ note "-24 ~ -24 ~"
 m2 silence
-m3 $ note "-22 -21 -20 -19 -18 -17"
+m3 $ note "-22 -21 -20 -19 -18 -19"
 
 -- duration
 m1 $ note "0 2" # dur "0.05 0.2"
